@@ -1,7 +1,7 @@
 ---
 name: campaign-orchestrator
 description: Coordinates end-to-end campaign workflow from research to follow-up
-model: claude-sonnet-4-5-20250929
+model: openai/gpt-4o
 allowed-tools: [view]
 ---
 

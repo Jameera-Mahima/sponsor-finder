@@ -1,7 +1,7 @@
 ---
 name: event-coordination
 description: Manages event registrations, attendance, and follow-up workflows
-model: claude-haiku-4-5-20251001
+model: openai/gpt-4o-mini
 allowed-tools: [view]
 ---
 

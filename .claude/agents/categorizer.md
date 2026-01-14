@@ -1,7 +1,7 @@
 ---
 name: categorizer
 description: Categorizes sponsor search results into types and validates relevance
-model: claude-haiku-4-5-20251001
+model: openai/gpt-4o-mini
 allowed-tools: []
 ---
 

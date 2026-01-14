@@ -1,7 +1,7 @@
 ---
 name: salesforce-integration
 description: Formats sponsor data for Salesforce CRM and generates personalized email templates
-model: claude-haiku-4-5-20251001
+model: openai/gpt-4o-mini
 allowed-tools: [view]
 ---
 

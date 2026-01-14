@@ -6,6 +6,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 AI-powered sponsor search system that helps the Community School of the Arts Foundation (CSOAF) discover and qualify potential sponsors.
 
+## OpenAI Configuration
+
+This project can use OpenAI models (GPT-4o, GPT-4o-mini) for all agent operations instead of Claude Code's default models.
+
+### Setup
+
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Configure API key:**
+   - Copy `.env.example` to `.env`
+   - Add your OpenAI API key to `.env`:
+     ```
+     OPENAI_API_KEY=your-api-key-here
+     USE_OPENAI=true
+     ```
+
+3. **Model configuration:**
+   - `OPENAI_MODEL_FAST=gpt-4o-mini` - Used for quick tasks (keyword extraction, categorization)
+   - `OPENAI_MODEL_QUALITY=gpt-4o` - Used for complex tasks (validation, orchestration)
+
+### Agent-Model Mapping
+
+The system automatically selects the appropriate model for each agent:
+
+| Agent | Model | Rationale |
+|-------|-------|-----------|
+| keyword-extractor | gpt-4o-mini | Fast keyword extraction |
+| web-researcher | gpt-4o-mini | Quick web searches |
+| categorizer | gpt-4o-mini | Simple categorization |
+| validator | gpt-4o | Quality validation needs deeper analysis |
+| salesforce-integration | gpt-4o-mini | Data formatting |
+| engagement-tracking | gpt-4o | Complex analytics |
+| event-coordination | gpt-4o-mini | Event data processing |
+| campaign-orchestrator | gpt-4o | Strategic coordination |
+
+### Usage
+
+The configuration is loaded automatically from `.env`. All agents will use OpenAI when `USE_OPENAI=true`.
+
+**Example usage:**
+```python
+from config import get_openai_client, get_model_for_agent
+
+# Get OpenAI client
+client = get_openai_client()
+
+# Get model for specific agent
+model = get_model_for_agent('keyword-extractor')  # Returns 'gpt-4o-mini'
+```
+
+See `openai_agent_example.py` for complete examples.
+
+### Security
+
+- **Never commit `.env` files** - They're excluded in `.gitignore`
+- API keys are loaded from environment variables only
+- Use `.env.example` as a template for team members
+
 ## Organization Profile: Community School of the Arts Foundation (CSOAF)
 
 ### Mission Statement

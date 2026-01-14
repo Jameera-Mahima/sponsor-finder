@@ -1,7 +1,7 @@
 ---
 name: keyword-extractor
 description: Extracts and prioritizes keywords from prompts and mission statements for sponsor searches
-model: claude-haiku-4-5-20251001
+model: openai/gpt-4o-mini
 allowed-tools: [view]
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: engagement-tracking
 description: Analyzes campaign metrics and prioritizes follow-up actions
-model: claude-sonnet-4-5-20250929
+model: openai/gpt-4o
 allowed-tools: [view]
 ---
 

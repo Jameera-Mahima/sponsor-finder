@@ -1,7 +1,7 @@
 ---
 name: validator
 description: Validates sponsor data quality and checks for active giving programs
-model: claude-sonnet-4-5-20250929
+model: openai/gpt-4o
 allowed-tools: [web_search, web_fetch]
 ---
 

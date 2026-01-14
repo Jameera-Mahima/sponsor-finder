@@ -2,6 +2,14 @@ nul
 
 tmpclaude-*
 
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+credentials.json
+
 # Logs - Exclude execution logs but keep dashboard and structure
 logs/campaigns/
 logs/agents/*/runs/

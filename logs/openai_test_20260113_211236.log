@@ -1,0 +1,119 @@
+=== OPENAI AGENT TEST RUN ===
+Timestamp: 2026-01-13 21:12:36
+Test ID: openai_test_20260113_211236
+Scenario: Arts Exhibition Fundraiser
+Source: docs/operations/Campaign_Scenarios.md
+
+========================================
+SCENARIO DETAILS
+========================================
+Objective: Support disabled children in the New York area
+Event Type: Arts exhibition
+Target Location: Near New York
+Beneficiaries: Children with disabilities
+
+Revenue Streams:
+- Event attendance fees
+- Art sales from exhibition
+- Direct donations from attendees
+
+Target Participants:
+- Corporations willing to sponsor and attend
+- Individual donors and art collectors
+- Community supporters
+
+Format: In-person fundraising event combining art showcase with charitable giving
+
+========================================
+TEST CONFIGURATION
+========================================
+Agent Models (OpenAI):
+- keyword-extractor: openai/gpt-4o-mini
+- web-researcher: openai/gpt-4o-mini
+
+API Configuration:
+- API Key: Loaded from .env
+- USE_OPENAI: true
+
+Expected Output:
+- Phase 1: Keywords (JSON format)
+- Phase 2: 5 sponsor prospects
+
+========================================
+PHASE 1: KEYWORD EXTRACTION
+========================================
+Agent: keyword-extractor
+Model: openai/gpt-4o-mini
+Status: Starting...
+Start Time: 2026-01-13 21:12:36
+
+Input Prompt:
+"Arts Exhibition Fundraiser supporting disabled children in New York area. Target corporations, individual donors, and art collectors for event sponsorship and attendance."
+
+Organization Context: CSOAF - Arts education for students with moderate to severe disabilities in CA and NY
+
+Output (JSON):
+{
+  "primary": [
+    "arts education",
+    "children with disabilities",
+    "arts exhibition",
+    "creative pathways",
+    "inclusive education"
+  ],
+  "secondary": [
+    "disability services",
+    "special education",
+    "accessibility",
+    "youth development",
+    "K-12 education",
+    "arts enrichment",
+    "community engagement",
+    "event fundraising",
+    "artistic talent",
+    "empowerment"
+  ],
+  "location": [
+    "New York",
+    "NYC",
+    "New York State"
+  ],
+  "sector": [
+    "arts and culture",
+    "education",
+    "disability services",
+    "nonprofit organizations",
+    "community development"
+  ],
+  "filters": {
+    "amount_min": 5000,
+    "timeframe": "active funders",
+    "giving_type": "grants, event sponsorships, in-kind donations",
+    "focus_areas": "arts education, disability services, accessibility, K-12 education"
+  }
+}
+
+Status: ✓ COMPLETED
+Agent ID: a182dcc
+End Time: 2026-01-13 21:12:45
+Duration: ~9 seconds
+Keywords Extracted: 5 primary, 10 secondary, 3 locations, 5 sectors
+
+LOG_COMPLETE: agent=keyword-extractor, duration=9s, output_file=keywords.json, keywords_count=23
+
+========================================
+PHASE 2: WEB RESEARCH
+========================================
+Agent: web-researcher
+Model: openai/gpt-4o-mini
+Status: Starting...
+Start Time: 2026-01-13 21:12:45
+
+Input Keywords (from Phase 1):
+Primary: arts education, children with disabilities, arts exhibition, creative pathways, inclusive education
+Secondary: disability services, special education, accessibility, youth development, K-12 education
+Location: New York, NYC, New York State
+Sectors: arts and culture, education, disability services, nonprofit organizations
+
+Target: Find 5 high-quality sponsor prospects
+

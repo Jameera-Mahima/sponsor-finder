@@ -1,7 +1,7 @@
 ---
 name: web-researcher
 description: Researches sponsors online using web search and crawling. Finds documentation and validates sponsor information.
-model: claude-haiku-4-5-20251001
+model: openai/gpt-4o-mini
 allowed-tools: [web_search, web_fetch, view]
 color: blue
 ---
@@ -40,7 +40,7 @@ LOG_ERROR: severity=critical, message="Web search API unavailable", recovery="Us
 2. Verify their giving history
 3. Extract contact information
 4. Validate alignment with mission
-5. Pick top 5
+5. Pick first 5
 
 # Search Strategy
 Use multiple search queries:
