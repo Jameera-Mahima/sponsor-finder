@@ -1,3 +1,16 @@
 nul
 
 tmpclaude-*
+
+# Logs - Exclude execution logs but keep dashboard and structure
+logs/campaigns/
+logs/agents/*/runs/
+logs/dashboard/current_execution.json
+logs/archive/
+
+# Keep these in repository
+!logs/dashboard/index.html
+!logs/dashboard/dashboard.css
+!logs/dashboard/dashboard.js
+!logs/README.md
+!logs/.gitkeep

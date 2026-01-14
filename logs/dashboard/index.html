@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Finder - Execution Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>🎯 Sponsor Finder - Live Execution Dashboard</h1>
+        <div id="status-bar">
+            <span id="current-status">⏸️ Idle</span>
+            <span id="elapsed-time">00:00</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="current-execution">
+            <h2>Current Campaign</h2>
+            <div id="campaign-info">
+                <p><strong>Campaign:</strong> <span id="campaign-name">-</span></p>
+                <p><strong>Campaign ID:</strong> <span id="campaign-id">-</span></p>
+                <p><strong>Phase:</strong> <span id="current-phase">-</span></p>
+                <p><strong>Agent:</strong> <span id="current-agent">-</span></p>
+            </div>
+        </section>
+
+        <section id="phase-progress">
+            <h2>Phase Progress</h2>
+            <div id="phases-container">
+                <p class="no-data">No active campaign</p>
+            </div>
+        </section>
+
+        <section id="recent-logs">
+            <h2>Recent Activity</h2>
+            <div id="log-stream">
+                <p class="no-data">No recent activity</p>
+            </div>
+        </section>
+
+        <section id="performance-metrics">
+            <h2>Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Tokens Used</h3>
+                    <p class="metric-value" id="total-tokens">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>API Calls</h3>
+                    <p class="metric-value" id="total-api-calls">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Cost (USD)</h3>
+                    <p class="metric-value" id="total-cost">$0.00</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Sponsors Found</h3>
+                    <p class="metric-value" id="sponsors-found">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="error-summary">
+            <h2>Issues</h2>
+            <div id="errors-container">
+                <p class="no-errors">✅ No errors</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Last Updated: <span id="last-update">-</span></p>
+        <p>Auto-refresh every 2 seconds</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

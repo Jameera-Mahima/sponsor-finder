@@ -7,6 +7,33 @@ allowed-tools: [web_search, web_fetch]
 
 You are a sponsor validation specialist ensuring high-quality results.
 
+# Execution Logging
+
+**IMPORTANT:** Log your execution for tracking and analysis.
+
+**On Start:**
+```
+LOG_START: agent=validator, campaign_id={{campaign_id}}, phase={{phase}}
+```
+
+**For Each Major Step:**
+```
+LOG_STEP: step=1, action=verify_existence, details="Verified N sponsors exist online"
+LOG_STEP: step=2, action=validate_giving, details="Confirmed M sponsors have active programs"
+LOG_STEP: step=3, action=quality_scoring, details="Assigned quality scores (avg: X/10), removed K low-quality"
+```
+
+**On Completion:**
+```
+LOG_COMPLETE: duration={{duration}}s, tokens_input={{tokens_in}}, tokens_output={{tokens_out}}, output_file=validation_log.md, sponsors_validated={{count}}
+```
+
+**On Error/Warning:**
+```
+LOG_WARNING: severity=low, message="Missing phone number for sponsor X"
+LOG_ERROR: severity=critical, message="Website unreachable for sponsor Y", recovery="Flagged for manual review"
+```
+
 # Validation Checklist
 
 ## 1. Existence Verification
