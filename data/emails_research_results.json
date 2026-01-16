@@ -1,0 +1,31 @@
+{
+  "emails": [
+    {"company": "van Ameringen Foundation", "email": "grants@vanamfound.org", "website": "https://www.vanamfound.org/"},
+    {"company": "Laurie M. Tisch Illumination Fund", "email": "info@lmtif.org", "website": "https://thelmtif.org/"},
+    {"company": "New York Community Trust", "email": "grants@thenytrust.org", "website": "https://thenytrust.org/"},
+    {"company": "Robin Hood Foundation", "email": "info@robinhood.org", "website": "https://robinhood.org/"},
+    {"company": "Helmsley Charitable Trust", "email": "grants@helmsleytrust.org", "website": "https://helmsleytrust.org/"},
+    {"company": "New York Health Foundation", "email": "Info@NYHealthFoundation.org", "website": "https://nyhealthfoundation.org/"},
+    {"company": "Altman Foundation", "email": "info@altman.org", "website": "https://altmanfoundation.org/"},
+    {"company": "Mother Cabrini Health Foundation", "email": "grantsupport@cabrinihealth.org", "website": "https://mothercabrinifoundation.org/"},
+    {"company": "Achelis & Bodman Foundation", "email": "application@achelisbodman.org", "website": "https://www.achelis-bodman.org/"},
+    {"company": "Tiger Foundation", "email": "info@tigerfoundation.org", "website": "https://www.tigerfoundation.org/"},
+    {"company": "William T. Grant Foundation", "email": "info@wtgrantfdn.org", "website": "https://wtgrantfoundation.org/"},
+    {"company": "The Jed Foundation", "email": "JEDCampusInfo@jedfoundation.org", "website": "https://jedfoundation.org/"},
+    {"company": "Brooklyn Community Foundation", "email": "info@BrooklynCommunityFoundation.org", "website": "https://www.bcf.org/"},
+    {"company": "New York Foundation", "email": "info@nyf.org", "website": "https://www.nyfoundation.org/"},
+    {"company": "Andrew W. Mellon Foundation", "email": "inquiries@mellon.org", "website": "https://www.mellon.org/"},
+    {"company": "Elevance Health Foundation", "email": "foundation@elevancehealth.com", "website": "https://www.elevancehealthfoundation.org/"},
+    {"company": "Tow Foundation", "email": "info@towfoundation.org", "website": "https://towardfoundation.org/"},
+    {"company": "JPMorgan Chase Foundation", "email": "Grant.Reports@jpmorgan.com", "website": "https://www.jpmorganchase.com/impact/foundation"},
+    {"company": "Kramer Levin Naftalis & Frankel LLP", "email": "contact@kramrlevin.com", "website": "https://www.kramerlevin.com/"},
+    {"company": "National Alliance on Mental Illness NYC (NAMI-NYC)", "email": "helpline@naminyc.org", "website": "https://www.nami.org/nyc"},
+    {"company": "New York Foundling", "email": "development@nyfoundling.org", "website": "https://www.nyfoundling.org/"},
+    {"company": "Mental Health Association in New York State (MHANYS)", "email": "info@mhanys.org", "website": "https://www.mhanys.org/"},
+    {"company": "Vibrant Emotional Health", "email": "info@vibrant.org", "website": "https://vibrant.org/"},
+    {"company": "Fund for Public Health NYC", "email": "development@fphnyc.org", "website": "https://www.fundforpublichealthnyc.org/"},
+    {"company": "New York State Office of Mental Health (OMH)", "email": "doh.sm.feedback@health.ny.gov", "website": "https://omh.ny.gov/"},
+    {"company": "NYC Department of Health & Mental Hygiene (DOHMH)", "email": "pressoffice@health.nyc.gov", "website": "https://www1.nyc.gov/site/doh/index.page"},
+    {"company": "Mayor's Office of Community Mental Health", "email": "press@mentalhealth.nyc.gov", "website": "https://www1.nyc.gov/site/mayorsoffice/index.page"}
+  ]
+}

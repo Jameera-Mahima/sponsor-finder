@@ -67,6 +67,73 @@ See `openai_agent_example.py` for complete examples.
 - API keys are loaded from environment variables only
 - Use `.env.example` as a template for team members
 
+## Model Fallback Strategy
+
+The system uses **OpenAI as primary**, with **Claude as automatic fallback**:
+
+### Automatic Fallback
+- If OpenAI API fails (network error, rate limit, service outage), automatically switches to Claude
+- Model mapping:
+  - `gpt-4o-mini` → `claude-haiku-4-5-20251001`
+  - `gpt-4o` → `claude-sonnet-4-5-20250929`
+- Fallback is logged transparently in campaign logs
+- No user intervention required
+
+### Configuration
+Both API keys recommended in `.env`:
+```bash
+# Required: OpenAI (primary)
+OPENAI_API_KEY=sk-...
+USE_OPENAI=true
+
+# Optional but recommended: Claude (fallback)
+ANTHROPIC_API_KEY=sk-ant-...
+USE_CLAUDE_FALLBACK=true
+```
+
+### Cost Optimization
+The system is **optimized for cost** by default:
+- **Fast agents** use `gpt-4o-mini` ($0.15/$0.60 per 1M tokens)
+  - keyword-extractor, web-researcher, categorizer, salesforce-integration, event-coordination
+- **Quality agents** use `gpt-4o` ($2.50/$10.00 per 1M tokens)
+  - validator, engagement-tracking, campaign-orchestrator
+- Claude fallback costs slightly more but ensures reliability
+
+### Cost Tracking
+All campaign logs include accurate cost information:
+- **Cost per agent** - breakdown by individual agent execution
+- **Cost by provider** - OpenAI vs Claude split
+- **Cost per validated sponsor** - efficiency metric
+- **Total campaign cost** - overall budget tracking
+
+Set cost alerts in `.env`:
+```bash
+COST_ALERT_THRESHOLD=5.00  # Alert if campaign exceeds $5.00
+LOG_COSTS_PER_AGENT=true   # Enable detailed per-agent cost logging
+```
+
+### Using the Unified LLM Interface
+
+For new Python code integrating with the system:
+```python
+from config import call_llm
+
+# Call LLM with automatic fallback
+messages = [
+    {"role": "system", "content": "You are a sponsor researcher."},
+    {"role": "user", "content": "Find sponsors for arts education..."}
+]
+
+result = call_llm('keyword-extractor', messages)
+
+# Result contains:
+# - result['content']: Response text
+# - result['model_used']: Which model was used (gpt-4o-mini, etc.)
+# - result['tokens_input']: Input tokens
+# - result['tokens_output']: Output tokens
+# - result['provider']: 'openai' or 'claude'
+```
+
 ## Organization Profile: Community School of the Arts Foundation (CSOAF)
 
 ### Mission Statement

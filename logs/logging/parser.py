@@ -6,6 +6,7 @@ Extracts structured logging information from agent text outputs
 import re
 from datetime import datetime
 from typing import Dict, List, Optional, Any
+from pricing import calculate_cost
 
 
 class LogParser:
@@ -97,7 +98,9 @@ class LogParser:
             'tokens_total': 0,
             'duration_seconds': 0,
             'api_calls': 1,  # Assume at least 1 API call
-            'cost_estimate_usd': 0.0
+            'cost_estimate_usd': 0.0,
+            'model_used': None,
+            'provider': None
         }
 
         if log_data.get('complete'):
@@ -119,9 +122,23 @@ class LogParser:
                 except ValueError:
                     metrics['duration_seconds'] = 0
 
-            # Estimate cost (rough approximation)
-            # Haiku: ~$0.001 per 1K tokens, Sonnet: ~$0.003 per 1K tokens
-            metrics['cost_estimate_usd'] = (metrics['tokens_total'] / 1000) * 0.002
+            # Extract model info (NEW: for accurate cost calculation)
+            if 'model_used' in complete_data:
+                metrics['model_used'] = complete_data['model_used']
+            if 'provider' in complete_data:
+                metrics['provider'] = complete_data['provider']
+
+            # Calculate accurate cost based on actual model used
+            model_name = metrics.get('model_used')
+            if model_name and metrics['tokens_total'] > 0:
+                metrics['cost_estimate_usd'] = calculate_cost(
+                    model_name,
+                    metrics['tokens_input'],
+                    metrics['tokens_output']
+                )
+            else:
+                # Fallback: use default cost if model not specified
+                metrics['cost_estimate_usd'] = 0.0
 
         return metrics
 
